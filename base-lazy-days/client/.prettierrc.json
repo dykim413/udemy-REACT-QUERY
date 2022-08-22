@@ -1,7 +1,23 @@
 {
-  "semi": true,
-  "trailingComma": "all",
-  "singleQuote": true,
-  "printWidth": 80,
-  "tabWidth": 2
+    "bracketSpacing"     : true,
+    "jsxBracketSameLine" : true,
+    "singleQuote"        : true,
+    "trailingComma"      : "all",
+    "arrowParens"        : "avoid",
+    "tabWidth"           : 4,
+    "semi"               : true,
+    "endOfLine"          : "auto",
+    "useTabs"            : false,
+    "eqeqeq"             : false,
+    "keySpacing"         : false,
+    "noShadow"           : 0,
+    "printWidth"         : 150,
+    "space-before-function-paren": [
+        "error",
+        {
+            "anonymous": "never",
+            "named": "never",
+            "asyncArrow": "always"
+        }
+    ]
 }
