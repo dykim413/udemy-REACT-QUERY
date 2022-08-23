@@ -1,20 +1,22 @@
-import { screen } from '@testing-library/react';
+import { act, renderHook } from '@testing-library/react-hooks';
 
-// import { rest } from 'msw';
-// import { defaultQueryClientOptions } from '../../../react-query/queryClient';
-// import { server } from '../../../mocks/server';
-// import { renderWithClient } from '../../../test-utils';
-import { AllStaff } from '../AllStaff';
+import { createQueryClientWrapper } from '../../../test-utils';
+import { useStaff } from '../hooks/useStaff';
 
-test('renders response from query', () => {
-  // write test here
-});
+test('filter staff', async () => {
+    const { result, waitFor } = renderHook(() => useStaff(), {
+        wrapper: createQueryClientWrapper(),
+    });
 
-test('handles query error', async () => {
-  // (re)set handler to return a 500 error for staff
-  // server.resetHandlers(
-  //   rest.get('http://localhost:3030/staff', (req, res, ctx) => {
-  //     return res(ctx.status(500));
-  //   }),
-  // );
+    // to get your bearings
+    // console.log(result);
+
+    // wait for the staff to populate
+    await waitFor(() => result.current.staff.length === 4);
+
+    // set to filter for only staff who give massage
+    act(() => result.current.setFilter('massage'));
+
+    // wait for the staff list to display only 3
+    await waitFor(() => result.current.staff.length === 3);
 });

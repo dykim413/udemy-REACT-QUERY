@@ -24,7 +24,7 @@ export function useStaff(): UseStaff {
 
     const selectFn = useCallback(data => filterByTreatment(data, filter), [filter]);
 
-    // TODO: get data from server via useQuery
+    // get data from server via useQuery
     const { data: staff = [] } = useQuery(queryKeys.staff, getStaff, {
         select: filter === 'all' ? undefined : selectFn,
     });

@@ -11,7 +11,7 @@
     "eqeqeq"             : false,
     "keySpacing"         : false,
     "noShadow"           : 0,
-    "printWidth"         : 150,
+    "printWidth"         : 120,
     "space-before-function-paren": [
         "error",
         {
